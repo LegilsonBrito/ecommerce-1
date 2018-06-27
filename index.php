@@ -6,7 +6,11 @@
  use \Hcode\Page;
  use \Hcode\PageAdmin;
 
- $app = new \Slim\Slim();
+ $app = new Slim(array(
+  'mode' => 'development', // production
+  'log.enabled' => false,
+  'template.path' => './view'
+ ));
 
  $app->config('debug', true);
 
@@ -23,7 +27,7 @@
   $page = new PageAdmin();
 
   $page->setTpl("index");
-
+ 
  });
 
  $app->run();
